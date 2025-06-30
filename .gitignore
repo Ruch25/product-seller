@@ -1,0 +1,20 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+
+
+# Database
+*.sqlite
+*.sqlite3
+*.db
+*.sql
+
+
+.env.*.backup
+.env.local
+.env.development
+.env.test
+.env.production
