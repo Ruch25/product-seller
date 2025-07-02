@@ -8,6 +8,8 @@ db.sequelize = sequelize;    // DB connection instance
 
 db.User = require('./user')(sequelize, Sequelize.DataTypes);
 db.Seller = require('./seller')(sequelize, Sequelize.DataTypes);
+db.Product = require('./product')(sequelize, Sequelize.DataTypes);
+db.Brand = require('./brand')(sequelize, Sequelize.DataTypes);
 
 
 Object.keys(db).forEach(modelName => {

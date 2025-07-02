@@ -3,7 +3,7 @@ const cors = require('cors');
 require('dotenv').config();
 const db = require('./models'); 
 const app = express();
-const routes = require('./routes'); // ✅ Works now
+const routes = require('./routes'); // Works now
 const { notFound, errorHandler } = require('./middleware/errorhandler');
 
 const PORT = process.env.PORT || 5000;
@@ -22,6 +22,6 @@ app.use(errorHandler);
 // Sync DB and start server
 db.sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${PORT}`);
+    console.log(` Server running on http://localhost:${PORT}`);
   });
 });
