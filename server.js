@@ -5,6 +5,8 @@ const db = require('./models');
 const app = express();
 const routes = require('./routes'); // Works now
 const { notFound, errorHandler } = require('./middleware/errorhandler');
+const requestLogger = require('./middleware/requestlogger');
+
 
 const PORT = process.env.PORT || 5000;
 
@@ -12,12 +14,15 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+//logger file
+app.use(requestLogger);
 // Routes
 app.use('/api', routes);
 
 // Fallback error handlers
 app.use(notFound);
 app.use(errorHandler);
+
 
 // Sync DB and start server
 db.sequelize.sync({ force: false }).then(() => {
